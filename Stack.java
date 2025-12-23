@@ -86,3 +86,41 @@ class StackLL{
         return count==capacity;
     }
 }
+class StackLinkedListImp{
+    int capacity;
+    int tos=-1;
+    LinkedList newStack=new LinkedList();
+    public StackLinkedListImp(int capacity) {
+        this.capacity=capacity;
+    }
+    public void push(int data){
+        if(tos==capacity-1){
+            System.out.println("!!StackOverFlow!!");
+            return;
+        }
+        tos++;
+        newStack.insertAtFirst(data);
+    }
+    public int pop(){
+        if(tos==-1){
+            System.out.println("!!StackUnderFLow!!");
+            return -1;
+        }
+        int value=newStack.head.data;
+        newStack.head=newStack.head.next;
+        tos--;
+        return value;
+    }
+    public static void main(String[] args) {
+        StackLinkedListImp s=new StackLinkedListImp(5);
+        s.push(10);
+        s.push(20);
+        s.push(30);
+        s.push(40);
+        s.push(50);
+        s.push(60);
+        System.out.println(s.pop());
+        s.push(100);
+        System.out.println(s.pop());
+    }
+}
