@@ -111,6 +111,14 @@ class StackLinkedListImp{
         tos--;
         return value;
     }
+     public int peek(){
+        if(tos==-1){
+            System.out.println("!!StackUnderFLow!!");
+            return -1;
+        }
+        int value=newStack.head.data;
+        return value;
+    }
     public static void main(String[] args) {
         StackLinkedListImp s=new StackLinkedListImp(5);
         s.push(10);
@@ -121,6 +129,7 @@ class StackLinkedListImp{
         s.push(60);
         System.out.println(s.pop());
         s.push(100);
-        System.out.println(s.pop());
+        System.out.println(s.peek());
+        s.push(70);
     }
 }
